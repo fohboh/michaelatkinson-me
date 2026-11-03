@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michael L. Atkinson — Trusted Enterprise Intelligence</title>
+<link rel="canonical" href="https://michaelatkinson.me/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Michael L. Atkinson">
+<meta property="og:title" content="Michael L. Atkinson — Trusted Enterprise Intelligence">
+<meta property="og:description" content="Enterprise Venture Architect. Creator of Certified Intelligence. How can enterprises trust AI before AI begins making decisions?">
+<meta property="og:image" content="https://michaelatkinson.me/assets/michael-atkinson.jpg">
+<meta property="og:url" content="https://michaelatkinson.me/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Michael L. Atkinson — Trusted Enterprise Intelligence">
+<meta name="twitter:description" content="Enterprise Venture Architect. Creator of Certified Intelligence.">
+<meta name="twitter:image" content="https://michaelatkinson.me/assets/michael-atkinson.jpg">
+<meta name="author" content="Michael L. Atkinson">
+<meta name="description" content="Michael L. Atkinson is an Enterprise Venture Architect, systems architect, author and strategist working on evidence-based AI, certified intelligence and enterprise trust architecture.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200;0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────
+   TOKENS
+   ───────────────────────────────────────────── */
+:root{
+  --navy-900:#060E1A;
+  --navy-800:#0B1A2D;
+  --navy-700:#12293F;
+  --ink:#0E1B2C;
+  --paper:#F7F7F4;
+  --paper-2:#EFEFE9;
+  --rule:#DFDED7;
+  --gray:#6B7076;
+  --gray-2:#8E9299;
+  --brass:#9E7C3C;
+  --brass-deep:#7C6029;
+  --brass-lift:#C6A052;
+
+  --bg:var(--paper);
+  --bg-2:var(--paper-2);
+  --fg:var(--ink);
+  --fg-muted:var(--gray);
+  --line:var(--rule);
+  --accent:var(--brass);
+  --accent-strong:var(--brass-deep);
+  --inverse-bg:var(--navy-900);
+  --inverse-fg:#EDEDE7;
+  --inverse-muted:#9AA3AE;
+  --inverse-line:rgba(255,255,255,.14);
+
+  --display:"Newsreader",Georgia,serif;
+  --body:"Archivo","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+  --gut:clamp(20px,5vw,72px);
+  --max:1280px;
+  --sec:clamp(72px,10vw,150px);
+}
+[data-theme="dark"]{
+  --bg:#070F1B;
+  --bg-2:#0C1725;
+  --fg:#EDEDE7;
+  --fg-muted:#98A1AC;
+  --line:rgba(255,255,255,.13);
+  --accent:var(--brass-lift);
+  --accent-strong:#D9B871;
+  --inverse-bg:#0C1725;
+  --inverse-fg:#EDEDE7;
+  --inverse-muted:#98A1AC;
+  --inverse-line:rgba(255,255,255,.13);
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--fg);
+  font-family:var(--body);font-size:17px;line-height:1.65;
+  font-weight:400;letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ─────────────────────────────────────────────
+   TYPE
+   ───────────────────────────────────────────── */
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;letter-spacing:-.022em;margin:0;text-wrap:balance}
+h1{font-size:clamp(2.85rem,6.6vw,5.7rem);line-height:.99}
+h2{font-size:clamp(2rem,4vw,3.35rem);line-height:1.06}
+h3{font-size:clamp(1.35rem,2.1vw,1.75rem);line-height:1.2;font-weight:400}
+h4{font-size:1.12rem;line-height:1.3;font-weight:500;letter-spacing:-.01em}
+p{margin:0 0 1.15em}
+.lede{font-family:var(--display);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.45;font-weight:300;color:var(--fg);max-width:34ch}
+.prose{max-width:66ch;color:var(--fg-muted);font-size:1.03rem}
+.prose strong{color:var(--fg);font-weight:500}
+.serif-em{font-family:var(--display);font-style:italic;font-weight:300}
+.tm{font-size:.52em;vertical-align:.62em;letter-spacing:.02em;font-weight:400;margin-left:.04em}
+
+.eyebrow{
+  font-family:var(--mono);font-size:.688rem;font-weight:500;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--accent);
+  margin:0 0 clamp(18px,2.5vw,28px);display:block;
+}
+.eyebrow--quiet{color:var(--fg-muted)}
+.meta{font-family:var(--mono);font-size:.688rem;letter-spacing:.13em;text-transform:uppercase;color:var(--fg-muted)}
+
+/* ─────────────────────────────────────────────
+   LAYOUT
+   ───────────────────────────────────────────── */
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--gut)}
+.section{padding-block:var(--sec)}
+.section + .section{border-top:1px solid var(--line)}
+.band{background:var(--inverse-bg);color:var(--inverse-fg);border-top:none!important}
+.band .eyebrow{color:var(--brass-lift)}
+.band .prose,.band .meta{color:var(--inverse-muted)}
+.band a.link{color:var(--inverse-fg)}
+
+.head{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;margin-bottom:clamp(40px,6vw,72px)}
+@media(min-width:900px){
+  .head{grid-template-columns:minmax(0,1.05fr) minmax(0,.85fr);align-items:end;gap:56px}
+}
+.head .prose{margin:0}
+
+/* ─────────────────────────────────────────────
+   NAV
+   ───────────────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);
+  backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);
+}
+.nav__in{max-width:var(--max);margin:0 auto;padding:0 var(--gut);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;height:66px}
+.brand{font-family:var(--display);font-size:1.06rem;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.nav__links{display:none;gap:clamp(14px,1.7vw,26px);align-items:center}
+@media(min-width:1060px){.nav__links{display:flex}}
+.nav__links a{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--fg-muted);padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;
+}
+.nav__links a:hover{color:var(--fg)}
+.nav__links a.is-active{color:var(--fg);border-bottom-color:var(--accent)}
+.nav__tools{display:flex;align-items:center;gap:8px}
+.iconbtn{
+  width:34px;height:34px;display:grid;place-items:center;background:none;
+  border:1px solid var(--line);border-radius:2px;cursor:pointer;color:var(--fg-muted);transition:.2s;
+}
+.iconbtn:hover{color:var(--fg);border-color:var(--fg-muted)}
+.iconbtn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5}
+#menuBtn{display:grid}
+@media(min-width:1060px){#menuBtn{display:none}}
+
+.drawer{
+  position:fixed;inset:66px 0 0;z-index:55;background:var(--bg);
+  padding:26px var(--gut) 60px;overflow-y:auto;display:none;
+}
+.drawer.is-open{display:block}
+.drawer a{
+  display:block;padding:15px 0;border-bottom:1px solid var(--line);
+  font-family:var(--display);font-size:1.5rem;font-weight:300;
+}
+.drawer a small{display:block;font-family:var(--mono);font-size:.65rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--fg-muted);margin-top:3px}
+
+/* ─────────────────────────────────────────────
+   BUTTONS + LINKS
+   ───────────────────────────────────────────── */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:2px;
+  font-family:var(--mono);font-size:.71rem;letter-spacing:.13em;text-transform:uppercase;
+  border:1px solid var(--fg);background:var(--fg);color:var(--bg);cursor:pointer;transition:.22s;
+}
+.btn:hover{background:transparent;color:var(--fg)}
+.btn--ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn--ghost:hover{border-color:var(--fg);background:transparent;color:var(--fg)}
+.band .btn{border-color:var(--inverse-fg);background:var(--inverse-fg);color:var(--inverse-bg)}
+.band .btn:hover{background:transparent;color:var(--inverse-fg)}
+.band .btn--ghost{background:transparent;color:var(--inverse-fg);border-color:var(--inverse-line)}
+.band .btn--ghost:hover{border-color:var(--inverse-fg)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+
+.link{
+  font-family:var(--mono);font-size:.71rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--fg);border-bottom:1px solid var(--accent);padding-bottom:3px;display:inline-block;transition:.2s;
+}
+.link:hover{color:var(--accent)}
+
+/* ─────────────────────────────────────────────
+   SIGNATURE: certification seal frame
+   ───────────────────────────────────────────── */
+.seal{position:relative;background:var(--bg-2);border:1px solid var(--line)}
+.seal::before,.seal::after{
+  content:"";position:absolute;width:16px;height:16px;pointer-events:none;
+  border-color:var(--accent);border-style:solid;
+}
+.seal::before{top:-1px;left:-1px;border-width:1px 0 0 1px}
+.seal::after{bottom:-1px;right:-1px;border-width:0 1px 1px 0}
+.seal__tag{
+  position:absolute;bottom:14px;left:14px;right:14px;display:flex;justify-content:space-between;
+  gap:12px;font-family:var(--mono);font-size:.625rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--fg-muted);
+}
+.seal__tag b{font-weight:500;color:var(--accent)}
+.portrait{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03)}
+[data-theme="dark"] .portrait{filter:saturate(.85) contrast(1.02) brightness(.94)}
+.seal--photo{background:var(--bg-2);max-width:230px;width:100%}
+@media(max-width:959px){.seal--photo{max-width:200px}}
+.seal--photo .seal__tag{position:static;display:block;padding:9px 11px 10px;
+  border-top:1px solid var(--line);background:var(--bg);color:var(--fg-muted);
+  font-size:.6rem;letter-spacing:.12em;line-height:1.5}
+.seal--photo .seal__tag b{display:block;font-weight:500;color:var(--accent);margin-top:2px}
+.placeholder{
+  aspect-ratio:4/5;display:grid;place-content:center;text-align:center;gap:8px;
+  background:
+    repeating-linear-gradient(-45deg,transparent 0 13px,color-mix(in srgb,var(--fg) 4%,transparent) 13px 14px);
+}
+.placeholder span{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-muted)}
+
+/* ─────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────── */
+.hero{padding-block:clamp(56px,8vw,110px) clamp(56px,8vw,110px)}
+.hero__grid{display:grid;gap:clamp(40px,6vw,72px);align-items:center}
+@media(min-width:960px){.hero__grid{grid-template-columns:minmax(0,1.7fr) minmax(0,.5fr);gap:clamp(40px,5vw,64px)}}
+.hero h1{margin-bottom:28px}
+.hero h1 em{font-style:italic;font-weight:300;color:var(--accent)}
+.hero__sub{max-width:52ch;color:var(--fg-muted);font-size:1.06rem;margin-bottom:14px}
+.hero__q{font-family:var(--display);font-size:clamp(1.25rem,2.1vw,1.6rem);font-style:italic;
+  font-weight:300;line-height:1.4;color:var(--fg);max-width:26ch;margin:0 0 34px;
+  padding-left:20px;border-left:1px solid var(--accent)}
+
+/* ─────────────────────────────────────────────
+   CARDS / GRIDS
+   ───────────────────────────────────────────── */
+.grid{display:grid;gap:1px;background:transparent;border:0}
+.grid--2{grid-template-columns:1fr}
+.grid--3{grid-template-columns:1fr}
+.grid--4{grid-template-columns:1fr}
+@media(min-width:700px){.grid--2,.grid--4{grid-template-columns:1fr 1fr}.grid--3{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.grid--3{grid-template-columns:repeat(3,1fr)}.grid--4{grid-template-columns:repeat(4,1fr)}}
+.cell{background:var(--bg);padding:clamp(26px,3vw,38px);display:flex;flex-direction:column;gap:12px;transition:background .25s;box-shadow:0 0 0 1px var(--line)}
+a.cell:hover{background:var(--bg-2)}
+.cell__k{font-family:var(--mono);font-size:.625rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+.cell p{color:var(--fg-muted);font-size:.95rem;margin:0}
+.cell__go{margin-top:auto;padding-top:20px;font-family:var(--mono);font-size:.65rem;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--fg-muted)}
+a.cell:hover .cell__go{color:var(--accent)}
+.band .grid{background:transparent;border:0}
+.band .cell{background:var(--inverse-bg);box-shadow:0 0 0 1px var(--inverse-line)}
+.band a.cell:hover{background:rgba(255,255,255,.03)}
+.band .cell p{color:var(--inverse-muted)}
+
+/* article rows */
+.rows{border-top:1px solid var(--line)}
+.row{
+  display:grid;gap:6px 32px;padding:26px 0;border-bottom:1px solid var(--line);
+  grid-template-columns:1fr;align-items:baseline;transition:.2s;
+}
+@media(min-width:820px){.row{grid-template-columns:132px minmax(0,1fr) 150px}}
+.row:hover{padding-left:10px}
+.row h4{font-family:var(--display);font-weight:400;font-size:1.28rem;letter-spacing:-.015em}
+.row:hover h4{color:var(--accent)}
+.row p{margin:6px 0 0;color:var(--fg-muted);font-size:.94rem;max-width:62ch}
+.row .meta{align-self:baseline}
+.row__theme{text-align:left}
+@media(min-width:820px){.row__theme{text-align:right}}
+
+/* featured article */
+.feature{display:grid;gap:clamp(28px,4vw,56px);align-items:center;margin-bottom:clamp(40px,5vw,64px)}
+@media(min-width:900px){.feature{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+  .feature--bio{grid-template-columns:minmax(0,.5fr) minmax(0,1.5fr)}}
+.feature .seal .portrait{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;filter:saturate(.92) contrast(1.03)}
+[data-theme="dark"] .portrait{filter:saturate(.85) contrast(1.02) brightness(.94)}
+.seal--photo{background:var(--bg-2);max-width:230px;width:100%}
+@media(max-width:959px){.seal--photo{max-width:200px}}
+.seal--photo .seal__tag{position:static;display:block;padding:9px 11px 10px;
+  border-top:1px solid var(--line);background:var(--bg);color:var(--fg-muted);
+  font-size:.6rem;letter-spacing:.12em;line-height:1.5}
+.seal--photo .seal__tag b{display:block;font-weight:500;color:var(--accent);margin-top:2px}
+.placeholder{aspect-ratio:5/4}
+
+/* quote */
+.quote{text-align:center;padding-block:clamp(80px,11vw,150px)}
+.quote blockquote{margin:0;font-family:var(--display);font-weight:200;
+  font-size:clamp(2.1rem,5.6vw,4.4rem);line-height:1.08;letter-spacing:-.03em}
+.quote blockquote em{font-style:italic;color:var(--brass-lift);font-weight:300}
+.quote figcaption{margin-top:34px;font-family:var(--mono);font-size:.65rem;
+  letter-spacing:.17em;text-transform:uppercase;color:var(--inverse-muted)}
+
+/* list of topics */
+.topics{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.topics li{border-bottom:1px solid var(--line);padding:20px 0;display:flex;gap:20px;align-items:baseline}
+.topics .n{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;color:var(--accent);min-width:26px}
+.topics .t{font-family:var(--display);font-size:clamp(1.15rem,1.9vw,1.5rem);font-weight:300;letter-spacing:-.015em}
+.band .topics,.band .topics li{border-color:var(--inverse-line)}
+
+/* definition list */
+.dl{display:grid;gap:1px;background:transparent;border:0}
+.dl__row{background:var(--bg);padding:22px clamp(20px,2.5vw,30px);display:grid;gap:6px;box-shadow:0 0 0 1px var(--line)}
+@media(min-width:760px){.dl__row{grid-template-columns:220px minmax(0,1fr);gap:32px;align-items:baseline}}
+.dl__row dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.dl__row dd{margin:0;color:var(--fg-muted);font-size:.97rem}
+
+/* pipeline diagram — order is meaningful here */
+.pipe{display:grid;gap:1px;background:transparent;border:0;grid-template-columns:1fr}
+@media(min-width:640px){.pipe{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.pipe{grid-template-columns:repeat(4,1fr)}}
+.pipe__step{background:var(--bg);padding:24px;display:grid;gap:8px;align-content:start;box-shadow:0 0 0 1px var(--line)}
+.pipe__n{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;color:var(--accent)}
+.pipe__t{font-family:var(--display);font-size:1.22rem;font-weight:400}
+.pipe__d{font-size:.88rem;color:var(--fg-muted)}
+
+/* two-column contrast diagram */
+.versus{display:grid;gap:1px;background:transparent;border:0;grid-template-columns:1fr}
+@media(min-width:760px){.versus{grid-template-columns:1fr 1fr}}
+.versus > div{background:var(--bg);padding:clamp(28px,3.5vw,46px);box-shadow:0 0 0 1px var(--line)}
+.versus h3{margin-bottom:16px}
+.versus ul{margin:0;padding-left:18px;color:var(--fg-muted);font-size:.95rem}
+.versus li{margin-bottom:8px}
+.versus .is-evidence{background:var(--bg-2)}
+.versus .is-evidence h3{color:var(--accent-strong)}
+[data-theme="dark"] .versus .is-evidence h3{color:var(--accent)}
+
+/* chain diagram */
+.chain{display:grid;gap:10px;max-width:640px}
+.chain__block{border:1px solid var(--line);border-left:2px solid var(--accent);padding:16px 20px;
+  display:grid;gap:4px;background:var(--bg)}
+.chain__h{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase}
+.chain__hash{font-family:var(--mono);font-size:.7rem;color:var(--fg-muted);word-break:break-all}
+
+/* filters + search */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px}
+.chip{
+  padding:8px 15px;border:1px solid var(--line);border-radius:999px;background:none;cursor:pointer;
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.11em;text-transform:uppercase;color:var(--fg-muted);transition:.2s;
+}
+.chip:hover{border-color:var(--fg-muted);color:var(--fg)}
+.chip.is-on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.searchbar{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:28px}
+.searchbar input{flex:1;border:0;background:none;font-family:var(--display);font-size:1.15rem;font-weight:300;padding:4px 0}
+.searchbar input::placeholder{color:var(--fg-muted)}
+.searchbar input:focus{outline:none}
+
+/* forms */
+.form{display:grid;gap:18px;max-width:620px}
+.field{display:grid;gap:7px}
+.field label{font-family:var(--mono);font-size:.65rem;letter-spacing:.13em;text-transform:uppercase;color:var(--fg-muted)}
+.field input,.field textarea,.field select{
+  background:none;border:0;border-bottom:1px solid var(--line);padding:9px 0;font-size:1rem;border-radius:0;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-bottom-color:var(--accent)}
+.field textarea{resize:vertical;min-height:110px;font-family:var(--body)}
+.note{font-size:.88rem;line-height:1.6;color:var(--fg-muted);max-width:62ch}
+.stamp{font-family:var(--mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--fg-muted);margin:0}
+
+/* newsletter */
+.subscribe{display:grid;gap:26px;align-items:end}
+@media(min-width:880px){.subscribe{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px}}
+.subscribe__form{display:flex;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--inverse-line);padding-bottom:10px}
+.subscribe__form input{flex:1;min-width:200px;background:none;border:0;padding:8px 0;font-size:1.02rem;color:var(--inverse-fg)}
+.subscribe__form input::placeholder{color:var(--inverse-muted)}
+.subscribe__form input:focus{outline:none}
+
+/* trusted by */
+.logos{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+@media(min-width:760px){.logos{grid-template-columns:repeat(5,1fr)}}
+.logos div{background:var(--bg);aspect-ratio:16/7;display:grid;place-items:center}
+.logos span{font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;color:var(--line);text-transform:uppercase}
+
+/* book */
+.bookshot{display:grid;place-items:center;aspect-ratio:3/4;background:var(--navy-800);color:#EDEDE7;padding:12%;text-align:center}
+.bookshot .bt{font-family:var(--display);font-size:clamp(1.4rem,2.6vw,2.1rem);font-weight:300;line-height:1.1;letter-spacing:-.02em}
+.bookshot .bs{font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brass-lift);margin-bottom:18px}
+.bookshot .ba{font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:#9AA3AE;margin-top:22px}
+.bookshot .rule{width:44px;height:1px;background:var(--brass-lift);margin:18px auto}
+
+/* toc */
+.toc{list-style:none;margin:0;padding:0;border-top:1px solid var(--line);counter-reset:c}
+.toc li{border-bottom:1px solid var(--line);padding:16px 0;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:baseline}
+.toc li::before{counter-increment:c;content:counter(c,decimal-leading-zero);
+  font-family:var(--mono);font-size:.66rem;color:var(--accent);letter-spacing:.1em}
+.toc span{font-family:var(--display);font-size:1.15rem;font-weight:300}
+
+/* footer */
+.footer{background:var(--navy-900);color:#EDEDE7;padding-block:clamp(60px,7vw,90px) 36px}
+.footer a{color:#9AA3AE;transition:color .2s}
+.footer a:hover{color:#EDEDE7}
+.footer__grid{display:grid;gap:44px;margin-bottom:56px}
+@media(min-width:820px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.footer h5{font-family:var(--mono);font-size:.63rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--brass-lift);margin:0 0 16px;font-weight:500}
+.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.92rem}
+.footer__bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:26px;display:flex;
+  flex-wrap:wrap;gap:14px;justify-content:space-between;font-family:var(--mono);
+  font-size:.63rem;letter-spacing:.11em;text-transform:uppercase;color:#79828E}
+
+/* page routing */
+.page{display:none}
+.page.is-active{display:block;animation:fade .45s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* scroll reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav class="nav">
+  <div class="nav__in">
+    <a href="#/" class="brand">Michael L. Atkinson<span>.</span></a>
+    <div class="nav__links" id="navLinks">
+      <a href="#/about">About</a>
+      <a href="#/advisory">Advisory</a>
+      <a href="#/contact">Contact</a>
+    </div>
+    <div class="nav__tools">
+      <button class="iconbtn" id="themeBtn" aria-label="Switch to dark mode">
+        <svg viewBox="0 0 24 24"><path d="M21 13a8.5 8.5 0 11-10-10 7 7 0 0010 10z"/></svg>
+      </button>
+      <button class="iconbtn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer" id="drawer">
+  <a href="#/">Home<small>Trusted enterprise intelligence</small></a>
+  <a href="#/about">About<small>The trust problem</small></a>
+  <a href="#/advisory">Advisory<small>Strategic counsel</small></a>
+  <a href="#/contact">Contact<small>Start a conversation</small></a>
+</div>
+
+<main id="main">
+
+<!-- ══════════════ HOME ══════════════ -->
+<div class="page" id="p-home">
+
+  <header class="section hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">Enterprise Venture Architect · Dallas · San Francisco · London</span>
+        <h1>Building the future of <em>trusted</em> enterprise intelligence.</h1>
+        <p class="hero__sub">Michael L. Atkinson is an Enterprise Venture Architect and Enterprise Systems Architect whose work focuses on one of the defining challenges of artificial intelligence:</p>
+        <p class="hero__q">How can enterprises trust AI before AI begins making decisions?</p>
+        <div class="btns">
+          <a class="btn" href="#/advisory">Advisory</a>
+          <a class="btn btn--ghost" href="#/about">About Michael</a>
+        </div>
+      </div>
+      <figure class="seal seal--photo" style="margin:0">
+        <img class="portrait" src="assets/michael-atkinson.jpg" alt="Michael L. Atkinson" width="480" height="600">
+        <figcaption class="seal__tag"><span>Michael L. Atkinson</span><b>Dallas</b></figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <section class="section band">
+    <div class="wrap">
+      <p style="font-family:var(--display);font-weight:200;font-size:clamp(1.75rem,4.2vw,3.2rem);line-height:1.14;letter-spacing:-.025em;max-width:22ch;margin:0">
+        AI should never be trusted more than the evidence on which it depends.</p>
+    </div>
+  </section>
+
+  <section class="section rv">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">The work</span><h2>Where four decades become useful to someone else.</h2></div>
+        <p class="prose">Across investment banking, enterprise operations, venture creation and systems architecture, I've developed frameworks that help organizations move beyond data quality toward evidence-based intelligence — and out of the condition I call data anarchy.</p>
+      </div>
+      <div class="grid grid--3">
+        <a class="cell" href="#/advisory">
+          <span class="cell__k">Strategic counsel</span>
+          <h3>Advisory</h3>
+          <p>CEO strategy, AI governance, enterprise architecture, commercialization, capital formation, product strategy and board advisory. Held directly with the people who own the decision.</p>
+          <span class="cell__go">Engagements →</span>
+        </a>
+        <a class="cell" href="#/advisory#platform">
+          <span class="cell__k">In residence</span>
+          <h3>Industry strategy for platform companies</h3>
+          <p>Data and AI infrastructure companies have exceptional technologists and few leaders who can bridge the executive buyer, the operator, product and engineering. That gap is where I work.</p>
+          <span class="cell__go">The vertical gap →</span>
+        </a>
+        <a class="cell" href="#/about">
+          <span class="cell__k">Frameworks</span>
+          <h3>Certified Intelligence<span class="tm">™</span></h3>
+          <p>A framework for evidence-based enterprise AI, in which every consequential number arrives carrying proof of how it was produced.</p>
+          <span class="cell__go">The thinking →</span>
+        </a>
+        <div class="cell">
+          <span class="cell__k">Forthcoming</span>
+          <h3>The Certified Enterprise</h3>
+          <p><span class="serif-em">Taming Data Anarchy in the AI Era.</span> A practical blueprint for replacing data chaos with certified trust — written for the executives, boards and audit committees who will be asked to explain how a machine reached a decision.</p>
+          <span class="cell__go" style="color:var(--fg-muted)">In progress</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <figure class="section band quote" style="margin:0">
+    <div class="wrap">
+      <blockquote>Data tells you what happened.<br><em>Evidence proves it.</em></blockquote>
+      <figcaption>Certified Intelligence<span class="tm">™</span> · Foundational principle</figcaption>
+    </div>
+  </figure>
+
+  <section class="section rv">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">The thesis</span><h2>Most organizations believe they have a data problem.</h2></div>
+        <p class="prose">They don't. They have a trust problem — and the difference determines whether AI can be relied upon at all.</p>
+      </div>
+      <div class="versus">
+        <div>
+          <span class="cell__k" style="color:var(--fg-muted)">What most enterprises have</span>
+          <h3>Data</h3>
+          <ul>
+            <li>Records what a system observed</li>
+            <li>Reflects the assumptions of whoever configured it</li>
+            <li>Can be recalculated, restated, overwritten</li>
+            <li>Explains itself only through the report that displays it</li>
+            <li>Persuades</li>
+          </ul>
+        </div>
+        <div class="is-evidence">
+          <span class="cell__k">What decisions require</span>
+          <h3>Evidence</h3>
+          <ul>
+            <li>Records what can be independently demonstrated</li>
+            <li>Carries the rule, the source and the version applied</li>
+            <li>Is sealed at receipt and reproducible afterward</li>
+            <li>Explains itself through an unbroken chain of custody</li>
+            <li>Proves</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prose" style="max-width:68ch;margin-top:44px">
+        <p>A model does not hesitate at an ambiguous denominator. It does not notice that two systems disagree. It consumes what it is given, at speed, with confidence, and produces decisions the organization then has to defend. Every serious AI failure I have examined was, underneath, a governance failure that predated the model by years.</p>
+        <p style="margin-bottom:0">The frameworks I work from follow from that: <strong>authority over a metric is assigned rather than assumed</strong>; <strong>definitions are versioned</strong>, with a formula, a denominator and an effective date; and <strong>certification occurs before consumption</strong> rather than being audited into existence afterward.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section rv">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">In practice</span><h2>FohBoh.ai</h2></div>
+        <p class="prose">The commercial implementation. Proof that the framework survives contact with a real industry — which is a different claim from believing it should.</p>
+      </div>
+      <div class="prose" style="max-width:68ch;margin-bottom:40px">
+        <p>FohBoh.ai applies certification to the $4.5 trillion global foodservice industry: an environment where data arrives from point-of-sale systems, payment processors, delivery platforms, suppliers, payroll and inventory, none of which agree and none of which were built to. It is, in miniature, every enterprise data problem — running in real time, with cash consequences.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="cell"><span class="cell__k">Infrastructure</span><h4>MGE</h4><p>A deterministic certification engine that establishes authoritative sources, versioned definitions and sealed evidence before any downstream system consumes the result. It contains no AI, by design.</p></div>
+        <div class="cell"><span class="cell__k">Application</span><h4>Sentry</h4><p>Certified audit and recovery at the operating unit. Sentry produces the documentation operators need to recover revenue lost to metrics leakage — an estimated $48 billion problem.</p></div>
+        <div class="cell"><span class="cell__k">Application</span><h4>Cortex</h4><p>Operations intelligence built on certified inputs, which makes it able to answer the question <span class="serif-em">how do you know?</span></p></div>
+      </div>
+      <div class="btns" style="margin-top:40px">
+        <a class="btn btn--ghost" href="https://fohboh.ai" target="_blank" rel="noopener">Visit FohBoh.ai</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap subscribe">
+      <div>
+        <span class="eyebrow">Get in touch</span>
+        <h2 style="max-width:18ch">If you're making a decision that depends on numbers you can't yet prove.</h2>
+      </div>
+      <div>
+        <p class="prose" style="color:var(--inverse-muted);margin-bottom:26px">The most useful first message names the decision in front of you and what a good outcome would look like.</p>
+        <div class="btns">
+          <a class="btn" href="#/contact">Start a conversation</a>
+          <a class="btn btn--ghost" href="#/advisory">How engagements work</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<div class="page" id="p-about">
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">About Michael</span>
+      <h1 style="max-width:16ch;margin-bottom:44px">Most organizations believe they have a data problem.</h1>
+      <div class="feature feature--bio">
+        <figure class="seal seal--photo" style="margin:0">
+          <img class="portrait" src="assets/michael-atkinson.jpg" alt="Michael L. Atkinson" width="480" height="600">
+          <figcaption class="seal__tag"><span>Michael L. Atkinson</span><b>Venture Architect</b></figcaption>
+        </figure>
+        <div>
+          <p class="lede" style="margin-bottom:26px">They don't. They have a trust problem.</p>
+          <div class="prose">
+            <p>Michael L. Atkinson is an Enterprise Venture Architect and Enterprise Systems Architect living at the intersection of operations, finance and technology. He is the founding CEO of <strong>Bailiwick Ventures</strong> and founder of the <strong>Bailiwick Venture Studio</strong>, which creates and builds a portfolio of next-generation enterprise and industry technology companies.</p>
+            <p>His perspective is forged from four decades of direct experience as an <strong>investment banker</strong>, executing over 250 transactions; as a <strong>multi-brand operator</strong> and <strong>multi-unit chain CFO</strong>; and as a <strong>technology entrepreneur</strong> and venture architect. Seeing an industry simultaneously from finance, from operations and from technology is an unusual vantage point, and it led him to identify a foundational crisis that most organizations experience daily without naming: <span class="serif-em">data anarchy</span>.</p>
+            <p>Every enterprise he has worked inside has more data than it can use and less certainty than it needs. The dashboards agree with one another until someone asks how a number was produced. Then the meeting stops being about the business and starts being about the numbers.</p>
+            <p>That failure is not a data quality problem. Both figures may be accurate records of what their systems observed. The problem is that neither is evidence — nothing in the enterprise established, in advance, which one carried authority. Artificial intelligence made the stakes immediate. A model does not hesitate at an ambiguous denominator, and it does not notice that two systems disagree.</p>
+            <p>The insight that followed is the through-line of everything since: <strong>before intelligence can be actionable, it must first be trusted.</strong> He has codified that principle in his forthcoming book, <span class="serif-em">The Certified Enterprise — Taming Data Anarchy in the AI Era</span>, and commercialized it through FohBoh.ai, built on a deterministic engine he designed himself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Where the work came from</span><h2>Six vantage points, one recurring problem.</h2></div>
+        <p class="prose">Not a career path so much as a set of angles on the same failure, each of which revealed something the others could not.</p>
+      </div>
+      <dl class="dl">
+        <div class="dl__row"><dt>Investment banking</dt><dd>Over 250 transactions as strategic advisor and private equity investment banker, beginning at Shearson Lehman Brothers in New York. Learned that a figure is a claim, and a claim requires someone accountable for it.</dd></div>
+        <div class="dl__row"><dt>Operations</dt><dd>Multi-brand operator in an industry where margin is measured in single points and the distance between the report and the walk-in is where the business is won or lost.</dd></div>
+        <div class="dl__row"><dt>The CFO seat</dt><dd>Chief financial and operating roles at multi-unit chains — the position where the gap between what a system reports and what is actually true becomes a personal liability.</dd></div>
+        <div class="dl__row"><dt>Technology entrepreneurship</dt><dd>Founded, led or advised a long series of technology companies, living with the architectural decisions afterward rather than handing them off.</dd></div>
+        <div class="dl__row"><dt>Venture architecture</dt><dd>Designing companies as architectures rather than products — capital structure, category position and technical foundation treated as one decision.</dd></div>
+        <div class="dl__row"><dt>Systems architecture</dt><dd>The current work: designing the deterministic engine that establishes what must be true before a model is allowed to reason, decide or act on behalf of an enterprise.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">In his words</span><h2 style="max-width:20ch">Every day is a school day.</h2></div>
+        <p class="prose">On why the role exists at all.</p>
+      </div>
+      <p style="font-family:var(--display);font-weight:200;font-style:italic;font-size:clamp(1.35rem,2.8vw,2.1rem);line-height:1.3;letter-spacing:-.018em;max-width:32ch;margin:0">
+        “Becoming a venture architect was a natural evolution — bringing together my experience in operations, finance and technology. It is where I find the most energy, because the work is constantly changing, which means I am constantly learning.”</p>
+      <p class="stamp" style="margin-top:22px;color:var(--brass-lift)">Michael L. Atkinson</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Ventures</span><h2>What the thinking has been built into.</h2></div>
+        <p class="prose">The frameworks are the body of work. These are the places they have been put under load.</p>
+      </div>
+      <div class="grid grid--2">
+        <div class="cell">
+          <span class="cell__k">Founding CEO</span>
+          <h3>Bailiwick Ventures</h3>
+          <p>A digital transformation practice for high-stakes operational environments, and the parent of the Bailiwick Venture Studio, which creates and builds next-generation technology companies.</p>
+        </div>
+        <div class="cell">
+          <span class="cell__k">Founder</span>
+          <h3>FohBoh.ai</h3>
+          <p>The first certified intelligence platform for the global foodservice industry, powered by the Metrics Governance Engine — a deterministic engine designed to certify operational facts before any downstream system consumes them.</p>
+        </div>
+        <div class="cell">
+          <span class="cell__k">Author</span>
+          <h3>The Certified Enterprise</h3>
+          <p><span class="serif-em">Taming Data Anarchy in the AI Era.</span> Forthcoming. A practical blueprint for replacing data chaos with certified trust.</p>
+        </div>
+        <div class="cell">
+          <span class="cell__k">Co-founder</span>
+          <h3>Club Kokomo Spirits</h3>
+          <p>Co-founded with The Beach Boys' Mike Love, alongside the award-winning Seven Caves Distillery — a reminder that operating businesses and building them are different disciplines, and that it helps to keep practising both.</p>
+        </div>
+      </div>
+      <p class="note" style="margin-top:26px">Also an investor in and developer of QuikFix.ai, a certified home and commercial services platform. Named among the industry's most influential technology experts by <span class="serif-em">Nation's Restaurant News</span>.</p>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">The combination</span><h2>The value is in the intersection.</h2></div>
+        <p class="prose">Any one of these is common. The set is not. Most organizations building enterprise AI have exceptional technologists and very few people who can hold the executive conversation, the customer conversation, the product conversation and the architecture conversation at the same time.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="cell"><span class="cell__k">01</span><h4>Enterprise systems thinking</h4><p>Seeing the whole stack — where authority lives, where trust breaks, and which layer a problem actually belongs to.</p></div>
+        <div class="cell"><span class="cell__k">02</span><h4>AI strategy</h4><p>What to automate, what to certify first, and what an organization must not hand to a model yet.</p></div>
+        <div class="cell"><span class="cell__k">03</span><h4>Data governance</h4><p>Governance as executable rules and versioned definitions rather than policy documents nobody runs.</p></div>
+        <div class="cell"><span class="cell__k">04</span><h4>KPI architecture</h4><p>Formulas, denominators, authoritative sources and effective dates — the layer where most enterprise disagreement actually originates.</p></div>
+        <div class="cell"><span class="cell__k">05</span><h4>Product strategy</h4><p>Translating a technical position into a product roadmap a market will pay for and a competitor cannot copy quickly.</p></div>
+        <div class="cell"><span class="cell__k">06</span><h4>Executive storytelling</h4><p>Over 250 transactions as a banker taught what an argument has to survive. Making it land in a boardroom, a buying committee or an investment committee is the same discipline.</p></div>
+        <div class="cell"><span class="cell__k">07</span><h4>Domain depth</h4><p>Four decades inside one of the most operationally unforgiving industries there is, as operator, CFO and founder — the vertical knowledge platform companies most often lack.</p></div>
+        <div class="cell"><span class="cell__k">08</span><h4>Founder experience</h4><p>Founded, led or advised a long series of technology companies. Built the thing, raised for it, and lived with the architecture decisions afterward.</p></div>
+        <div class="cell"><span class="cell__k">09</span><h4>Category creation</h4><p>Naming a problem the market has not named yet, and building the language other people end up using.</p></div>
+        <div class="cell"><span class="cell__k">10</span><h4>Capital formation</h4><p>Over 250 transactions as an investment banker. Knowing what a raise has to prove, and structuring it around the architecture rather than the other way around.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">The title</span><h2>Enterprise Venture Architect</h2></div>
+        <p class="prose">A role a great many companies need and almost none have named. Naming it is the point — an organization cannot hire for a function it has no word for.</p>
+      </div>
+      <div class="feature" style="margin-bottom:56px">
+        <div>
+          <p class="lede" style="margin-bottom:24px">Not a CTO. Not a chief product officer. Not an operating partner.</p>
+          <div class="prose">
+            <p>Large technology companies are well supplied with people who can build the platform, and well supplied with people who can sell it. They are thinly supplied with people who can stand between an emerging capability and an industry that has never heard of it, and say precisely where the product is — then design the commercial model that captures it and the narrative that makes the market recognize the problem as its own.</p>
+            <p>That work is a synthesis: founder, strategist, systems thinker and capital allocator, held by one person because splitting it across four is what causes it to fail. It is the function I have performed under a half-dozen different titles for four decades, and the one I would now describe accurately.</p>
+          </div>
+        </div>
+        <div>
+          <span class="meta">The mandate</span>
+          <ul class="topics" style="margin-top:16px">
+            <li><span class="n">—</span><span class="t">Identify new product opportunities at scale</span></li>
+            <li><span class="n">—</span><span class="t">Connect emerging AI capabilities to real industry problems</span></li>
+            <li><span class="n">—</span><span class="t">Design commercial models</span></li>
+            <li><span class="n">—</span><span class="t">Develop strategic partnerships</span></li>
+            <li><span class="n">—</span><span class="t">Create category-defining narratives</span></li>
+            <li><span class="n">—</span><span class="t">Mentor product and executive teams</span></li>
+            <li><span class="n">—</span><span class="t">Advise the CEO and board on long-term strategy</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="grid grid--3">
+        <div class="cell"><span class="cell__k">Adjacent, but not this</span><h4>The CTO</h4><p>Owns whether the thing can be built and how it scales. Rarely owns whether it is the right thing to build for an industry they have not operated inside.</p></div>
+        <div class="cell"><span class="cell__k">Adjacent, but not this</span><h4>The chief product officer</h4><p>Owns the roadmap the company has already committed to. This work happens upstream of the roadmap, where the commitment gets made.</p></div>
+        <div class="cell"><span class="cell__k">Adjacent, but not this</span><h4>The operating partner</h4><p>Improves the performance of an asset that exists. This role identifies the asset that does not exist yet and argues for its creation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <span class="eyebrow">The mission</span>
+      <p style="font-family:var(--display);font-weight:200;font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.2;letter-spacing:-.02em;max-width:26ch;margin:0 0 28px">
+        To give enterprises a way to prove what is true before intelligence acts on it.</p>
+      <p class="prose" style="color:var(--inverse-muted)">Not better dashboards. Not more models. A certification layer — independent of the systems that produce data and independent of the systems that consume it — so that trust becomes an engineered property of the enterprise rather than an assumption inside it.</p>
+      <div class="btns" style="margin-top:34px">
+        <a class="btn" href="#/advisory">Advisory</a>
+        <a class="btn btn--ghost" href="#/contact">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ ADVISORY ══════════════ -->
+<div class="page" id="p-advisory">
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Advisory</span>
+      <h1 style="max-width:15ch;margin-bottom:36px">Helping leadership teams navigate the next generation of enterprise intelligence.</h1>
+      <div class="feature" style="margin-bottom:0">
+        <div>
+          <p class="lede" style="margin-bottom:24px">Not consulting. Strategic counsel.</p>
+          <div class="prose">
+            <p>No delivery teams. No staffing model. No deck factory. A small number of engagements at a time, held directly with the people who own the decision — and structured so that the outcome is a decision, not a document.</p>
+            <p>Most of the work sits at one intersection: an organization is about to place significant weight on AI, and nobody in the room can yet say what the enterprise would have to prove if that weight turned out to be misplaced. That question is architectural, commercial and governance-related at once, which is why it tends to stall between functions.</p>
+          </div>
+          <div class="btns" style="margin-top:12px">
+            <a class="btn" href="#advisory-inquiry">Discuss an engagement</a>
+          </div>
+        </div>
+        <div class="seal" style="padding:clamp(28px,3.4vw,44px);align-self:start">
+          <span class="cell__k">Direct</span>
+          <p style="font-family:var(--display);font-size:1.2rem;font-weight:300;margin:12px 0 6px">
+            <a href="mailto:Michael@bailiwickventures.com?subject=Advisory%20inquiry" style="border-bottom:1px solid var(--accent)">Michael@bailiwickventures.com</a></p>
+          <p class="stamp" style="margin:0">Dallas · San Francisco · London</p>
+          <p class="prose" style="margin:22px 0 0;font-size:.94rem">A short note naming the decision in front of you is enough to start. Replies usually follow within two business days.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <span class="eyebrow">Where engagements usually begin</span>
+      <p style="font-family:var(--display);font-weight:200;font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.2;letter-spacing:-.02em;max-width:26ch;margin:0 0 30px">
+        Four questions a leadership team should be able to answer before AI touches a decision.</p>
+      <div class="grid grid--2">
+        <div class="cell"><span class="cell__k">Question 01</span><h4>Which source holds authority?</h4><p>When two systems disagree about the same figure, what decides — a rule, or whoever is in the room?</p></div>
+        <div class="cell"><span class="cell__k">Question 02</span><h4>Which definition is in force?</h4><p>Can you state the formula, the denominator and the effective date behind your most consequential metric, and name who changed it last?</p></div>
+        <div class="cell"><span class="cell__k">Question 03</span><h4>What was proven, and what was assumed?</h4><p>For any number a model consumed, can you reproduce how it was produced — months later, to someone hostile?</p></div>
+        <div class="cell"><span class="cell__k">Question 04</span><h4>Who is accountable when it is wrong?</h4><p>Not who built the model. Who signs the number the model acted on.</p></div>
+      </div>
+      <p class="prose" style="margin-top:36px;color:var(--inverse-muted);max-width:62ch">Organizations that can answer all four rarely need advisory help. I have met very few.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Where I work</span><h2>Seven areas, one underlying problem.</h2></div>
+        <p class="prose">Engagements rarely stay inside a single category. The value is in being able to move between them without handing you to a different partner halfway through.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="cell"><span class="cell__k">Area</span><h4>CEO strategy</h4><p>The decisions a chief executive cannot delegate: what the company actually is, what it refuses to become, and the sequence in which it gets there.</p></div>
+        <div class="cell"><span class="cell__k">Area</span><h4>AI governance</h4><p>What must be certified before a model is permitted to decide, and who is accountable when it does.</p></div>
+        <div class="cell"><span class="cell__k">Area</span><h4>Enterprise architecture</h4><p>Where trust belongs in the stack, and why it cannot live inside the systems that produce or consume the data.</p></div>
+        <div class="cell"><span class="cell__k">Area</span><h4>Commercialization</h4><p>Channel, embedded distribution and partnership models for infrastructure that others build on.</p></div>
+        <div class="cell"><span class="cell__k">Area</span><h4>Capital formation</h4><p>Structuring the raise around the architecture rather than the other way around.</p></div>
+        <div class="cell"><span class="cell__k">Area</span><h4>Product strategy</h4><p>Turning a technical position into a category position, and a category position into a defensible business.</p></div>
+        <div class="cell"><span class="cell__k">Area</span><h4>Board advisory</h4><p>Preparing boards to ask the right questions about AI before the regulator or the auditor does.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="platform">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">For platform companies</span><h2>The vertical gap in enterprise data infrastructure.</h2></div>
+        <p class="prose">Data platform, cloud and AI infrastructure companies rarely have a technology problem. They have a translation problem — between what the platform can do and how a specific industry actually runs.</p>
+      </div>
+      <div class="prose" style="max-width:68ch;color:var(--inverse-muted);margin-bottom:44px">
+        <p>These organizations are staffed with outstanding technologists and comparatively few leaders who can sit between the executive buyer, the customer's operators, the product organization and engineering — and be credible in all four rooms. The result is a platform that is technically superior and commercially generic: reference architectures that describe the capability but not the industry, and field teams selling horizontally into buyers who think vertically.</p>
+        <p>That gap is where I work. It is the same problem I solved by building a certification layer for one industry from the ground up: knowing what the operator's day actually looks like, which numbers get argued about, which system holds authority in practice rather than on the architecture diagram, and what a buyer has to be able to prove to their own board.</p>
+      </div>
+      <div class="grid grid--3">
+        <div class="cell"><span class="cell__k">Where it helps</span><h4>Industry strategy</h4><p>Deciding which verticals the platform should own, in what sequence, and what has to be true for each one.</p></div>
+        <div class="cell"><span class="cell__k">Where it helps</span><h4>Product and reference architecture</h4><p>Turning general capability into an industry-specific answer that a buying committee recognizes as their own problem.</p></div>
+        <div class="cell"><span class="cell__k">Where it helps</span><h4>Executive and field enablement</h4><p>Giving the field organization the vertical fluency to hold a conversation with the operators who use the system, not only the architects who buy it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">How it works</span><h2>Four stages, in sequence.</h2></div>
+        <p class="prose">The order matters. Each stage depends on the one before it, and an engagement that skips ahead produces a recommendation nobody can act on.</p>
+      </div>
+      <div class="pipe">
+        <div class="pipe__step"><span class="pipe__n">Stage 01</span><span class="pipe__t">Conversation</span><span class="pipe__d">A direct discussion of the decision in front of you. No proposal, no scope document. If I am not the right person, I will say so here.</span></div>
+        <div class="pipe__step"><span class="pipe__n">Stage 02</span><span class="pipe__t">Diagnostic</span><span class="pipe__d">A structured read of the current architecture, definitions and accountability — what is actually established versus what is assumed.</span></div>
+        <div class="pipe__step"><span class="pipe__n">Stage 03</span><span class="pipe__t">Working session</span><span class="pipe__d">Time with the leadership team to resolve the specific question. The objective is a decision the room owns, reached in the room.</span></div>
+        <div class="pipe__step"><span class="pipe__n">Stage 04</span><span class="pipe__t">Standing counsel</span><span class="pipe__d">Where it is useful, an ongoing relationship as the decision is executed. Most engagements that matter continue past the first answer.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Engagements</span><h2>Five ways this usually works.</h2></div>
+        <p class="prose">Terms are set per engagement. Retainer, session and equity arrangements are all workable; the structure follows the problem rather than the reverse.</p>
+      </div>
+      <dl class="dl">
+        <div class="dl__row"><dt>CEO advisor</dt><dd>A standing relationship with a chief executive navigating an architectural or category decision. Ongoing, confidential, low-ceremony.</dd></div>
+        <div class="dl__row"><dt>Board advisor</dt><dd>Formal or informal board-level counsel on AI governance, data trust and technology positioning.</dd></div>
+        <div class="dl__row"><dt>Executive strategy session</dt><dd>A focused working session with the leadership team to resolve a specific question — architecture, positioning or sequence.</dd></div>
+        <div class="dl__row"><dt>Enterprise workshop</dt><dd>A structured programme for the teams responsible for data, AI and assurance, ending with a defined certification approach rather than a report.</dd></div>
+        <div class="dl__row"><dt>In residence</dt><dd>A longer, embedded arrangement with a platform or infrastructure company — industry fellow, field CTO, principal industry architect or <a href="#/about" style="border-bottom:1px solid var(--accent)">enterprise venture architect</a> — where the vertical strategy has to be built rather than advised on.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="versus">
+        <div>
+          <span class="cell__k" style="color:var(--fg-muted)">Fit</span>
+          <h3>Who this is for</h3>
+          <ul>
+            <li>Chief executives placing a strategic bet on AI</li>
+            <li>Boards and audit committees that will be asked how a machine decided</li>
+            <li>CIOs, chief data officers and chief AI officers owning the architecture</li>
+            <li>Private equity operating partners assessing a portfolio company's data position</li>
+            <li>Enterprise software and data platform CEOs building vertical strategy</li>
+            <li>Founders whose architecture is the company</li>
+          </ul>
+        </div>
+        <div class="is-evidence">
+          <span class="cell__k">Scope</span>
+          <h3>What this is not</h3>
+          <ul>
+            <li>Not implementation. I do not staff delivery.</li>
+            <li>Not vendor selection dressed as strategy.</li>
+            <li>Not a written assessment that ends at the recommendation.</li>
+            <li>Not model development or data engineering.</li>
+            <li>Not a reseller relationship. No referral fees, no platform allegiances.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note" style="margin-top:22px">Independence is the product. It is the same principle the frameworks rest on.</p>
+    </div>
+  </section>
+
+  <section class="section band" id="advisory-inquiry">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Inquiries</span><h2>Describe the decision.</h2></div>
+        <p class="prose">The most useful first message names the decision in front of you and what a good outcome would look like. A reply usually follows within two business days.</p>
+      </div>
+      <div class="grid grid--2" style="margin-bottom:34px">
+        <a class="cell" href="mailto:Michael@bailiwickventures.com?subject=Advisory%20inquiry&body=The%20decision%20in%20front%20of%20us%3A%0A%0AWho%20owns%20it%3A%0A%0AWhat%20a%20good%20outcome%20looks%20like%3A%0A%0AOrganization%20and%20role%3A%0A">
+          <span class="cell__k">Advisory</span>
+          <h4>Strategic counsel</h4>
+          <p>CEO advisor, board advisor, executive strategy session or enterprise workshop.</p>
+          <span class="cell__go">Michael@bailiwickventures.com →</span>
+        </a>
+        <a class="cell" href="mailto:Michael@bailiwickventures.com?subject=In-residence%20inquiry&body=The%20role%20or%20mandate%3A%0A%0AOrganization%20and%20role%3A%0A%0AWhat%20the%20vertical%20strategy%20needs%20to%20accomplish%3A%0A">
+          <span class="cell__k">In residence</span>
+          <h4>Embedded engagement</h4>
+          <p>Industry fellow, field CTO, principal industry architect or enterprise venture architect.</p>
+          <span class="cell__go">Michael@bailiwickventures.com →</span>
+        </a>
+      </div>
+      <p class="prose" style="color:var(--inverse-muted);max-width:60ch;margin:0">Each opens a message with the useful questions already in it. Answer what you can — a partial note is better than a polished one.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<div class="page" id="p-contact">
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Contact</span><h1 style="max-width:12ch">Start a conversation.</h1></div>
+        <p class="prose">Everything reaches the same inbox. Choosing a category below simply puts the useful questions in the message for you. Most inquiries receive a reply within two business days.</p>
+      </div>
+
+      <div style="border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:clamp(28px,3.4vw,44px) 0;margin-bottom:clamp(40px,5vw,64px)">
+        <span class="meta">Direct</span>
+        <p style="font-family:var(--display);font-size:clamp(1.5rem,3.2vw,2.4rem);font-weight:300;letter-spacing:-.02em;margin:14px 0 8px">
+          <a href="mailto:Michael@bailiwickventures.com" style="border-bottom:1px solid var(--accent)">Michael@bailiwickventures.com</a></p>
+        <p class="stamp" style="margin:0">Dallas · San Francisco · London</p>
+      </div>
+
+      <div class="grid grid--2">
+        <a class="cell" href="mailto:Michael@bailiwickventures.com?subject=Strategic%20advisory&body=The%20decision%20in%20front%20of%20us%3A%0A%0AWho%20owns%20it%3A%0A%0AWhat%20a%20good%20outcome%20looks%20like%3A%0A%0AOrganization%20and%20role%3A%0A">
+          <span class="cell__k">01</span>
+          <h4>Strategic advisory</h4>
+          <p>CEO strategy, AI governance, enterprise architecture, commercialization, capital formation, product strategy or board advisory.</p>
+          <span class="cell__go">Michael@bailiwickventures.com →</span>
+        </a>
+        <a class="cell" href="mailto:Michael@bailiwickventures.com?subject=Executive%20or%20in-residence%20role&body=The%20role%20or%20mandate%3A%0A%0AOrganization%3A%0A%0AWhat%20the%20vertical%20strategy%20needs%20to%20accomplish%3A%0A%0ATimeframe%3A%0A">
+          <span class="cell__k">02</span>
+          <h4>Executive or in-residence role</h4>
+          <p>Industry fellow, field CTO, principal industry architect or enterprise venture architect at a platform or infrastructure company.</p>
+          <span class="cell__go">Michael@bailiwickventures.com →</span>
+        </a>
+        <a class="cell" href="mailto:Michael@bailiwickventures.com?subject=Board%20opportunity&body=The%20company%3A%0A%0AStage%20and%20sector%3A%0A%0AWhat%20the%20board%20needs%3A%0A">
+          <span class="cell__k">03</span>
+          <h4>Board opportunities</h4>
+          <p>Board and audit committee roles where AI governance and data trust are becoming board-level questions.</p>
+          <span class="cell__go">Michael@bailiwickventures.com →</span>
+        </a>
+        <a class="cell" href="mailto:Michael@bailiwickventures.com?subject=FohBoh.ai&body=Your%20interest%20in%20FohBoh.ai%3A%0A%0AOrganization%20and%20role%3A%0A">
+          <span class="cell__k">04</span>
+          <h4>FohBoh.ai</h4>
+          <p>Partnership, investment or product inquiries relating to the venture and the Metrics Governance Engine.</p>
+          <span class="cell__go">Michael@bailiwickventures.com →</span>
+        </a>
+      </div>
+
+      <p class="note" style="margin-top:30px">Each of these opens an email addressed to me, with a subject line and the useful questions already filled in. Answer what you can — a partial note is better than a polished one. If your device does not open a mail app, write to <a href="mailto:Michael@bailiwickventures.com" style="border-bottom:1px solid var(--accent)">Michael@bailiwickventures.com</a> directly.</p>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="eyebrow">Elsewhere</span><h2>Where the writing lives.</h2></div>
+        <p class="prose">Ongoing thinking on certification, governance and enterprise trust.</p>
+      </div>
+      <div class="grid grid--3">
+        <a class="cell" href="https://www.linkedin.com/in/mlatkinson1" target="_blank" rel="noopener"><span class="cell__k">Professional</span><h4>LinkedIn</h4><p>Commentary and long-form posts.</p><span class="cell__go">Visit →</span></a>
+        <a class="cell" href="https://substack.com/@michaellatkinson1" target="_blank" rel="noopener"><span class="cell__k">Essays</span><h4>Substack</h4><p>Working notes and longer arguments.</p><span class="cell__go">Read →</span></a>
+        <a class="cell" href="https://www.bailiwickventures.com" target="_blank" rel="noopener"><span class="cell__k">Practice</span><h4>Bailiwick Ventures</h4><p>The firm and the venture studio.</p><span class="cell__go">Visit →</span></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid" style="grid-template-columns:none">
+      <div>
+        <div class="brand" style="color:#EDEDE7;margin-bottom:14px">Michael L. Atkinson<span style="color:var(--brass-lift)">.</span></div>
+        <p style="color:#9AA3AE;font-size:.94rem;max-width:44ch;margin:0 0 20px">Enterprise Venture Architect. Founding CEO of Bailiwick Ventures. Founder of FohBoh.ai. Author of <span class="serif-em">The Certified Enterprise</span>.</p>
+        <p style="color:#9AA3AE;font-size:.94rem;margin:0 0 22px"><a href="mailto:Michael@bailiwickventures.com">Michael@bailiwickventures.com</a> &nbsp;·&nbsp; Dallas · San Francisco · London</p>
+        <ul style="list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:22px;font-size:.92rem">
+          <li><a href="#/about">About</a></li>
+          <li><a href="#/advisory">Advisory</a></li>
+          <li><a href="#/contact">Contact</a></li>
+          <li><a href="https://www.linkedin.com/in/mlatkinson1" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://substack.com/@michaellatkinson1" target="_blank" rel="noopener">Substack</a></li>
+          <li><a href="https://fohboh.ai/blog" target="_blank" rel="noopener">Blogs</a></li>
+          <li><a href="https://www.bailiwickventures.com" target="_blank" rel="noopener">Bailiwick Ventures</a></li>
+          <li><a href="https://fohboh.ai" target="_blank" rel="noopener">FohBoh.ai</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© <span id="yr"></span> Michael L. Atkinson</span>
+      <span>Certified Intelligence<span class="tm">™</span></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const $ = (s,r=document)=>r.querySelector(s);
+const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
+const ROUTES = ["home","about","advisory","contact"];
+
+let CURRENT = "home";
+function route(hash){
+  hash = typeof hash === "string" ? hash : location.hash;
+  if(hash && !hash.startsWith("#/")){
+    const t = document.getElementById(hash.slice(1));
+    if(t){ t.scrollIntoView({behavior:"smooth",block:"start"}); return; }
+  }
+  const parts = hash.replace(/^#\//,"").split("#");
+  const raw = parts[0] || "home";
+  const id = ROUTES.includes(raw) ? raw : "home";
+  CURRENT = id;
+  $$(".page").forEach(p=>p.classList.remove("is-active"));
+  $("#p-"+id).classList.add("is-active");
+  $$("#navLinks a").forEach(a=>a.classList.toggle("is-active", a.getAttribute("href")==="#/"+id));
+  $("#drawer").classList.remove("is-open");
+  $("#menuBtn").setAttribute("aria-expanded","false");
+  document.title = id==="home"
+    ? "Michael L. Atkinson — Trusted Enterprise Intelligence"
+    : id.charAt(0).toUpperCase()+id.slice(1)+" — Michael L. Atkinson";
+  if(parts[1]){
+    const t = document.getElementById(parts[1]);
+    if(t){ setTimeout(()=>t.scrollIntoView({behavior:"smooth",block:"start"}),80); observe(); return; }
+  }
+  window.scrollTo({top:0,behavior:"instant"});
+  observe();
+}
+window.addEventListener("hashchange",route);
+
+// Route on click directly, so navigation works even when the page is embedded
+// in a preview or iframe that intercepts hash changes.
+document.addEventListener("click", e => {
+  const a = e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const href = a.getAttribute("href");
+  e.preventDefault();
+  try { location.hash = href; } catch(err) { /* sandboxed */ }
+  route(href);
+});
+
+$("#menuBtn").addEventListener("click",()=>{
+  const d = $("#drawer"), open = d.classList.toggle("is-open");
+  $("#menuBtn").setAttribute("aria-expanded",String(open));
+});
+$("#themeBtn").addEventListener("click",()=>{
+  const root = document.documentElement;
+  const next = root.dataset.theme==="dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  $("#themeBtn").setAttribute("aria-label", next==="dark" ? "Switch to light mode" : "Switch to dark mode");
+});
+let io;
+function observe(){
+  if(io) io.disconnect();
+  io = new IntersectionObserver(es=>es.forEach(en=>{
+    if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+  }),{rootMargin:"0px 0px -8% 0px"});
+  $$(".page.is-active .rv").forEach(el=>io.observe(el));
+}
+
+$("#yr").textContent = new Date().getFullYear();
+route();
+</script>
+</body>
+</html>
