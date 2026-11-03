@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MLA">
+  <rect width="64" height="64" fill="#FFFFFF"/>
+
+  <!-- M : one solid mass with a single deep notch, so it reads as M, not as two bars -->
+  <path d="M3 52 L9 12 L15 34 L21 12 L27 52 L19 52 L16 32 L13 44 L10 32 L8 52 Z" fill="#111111"/>
+  <path d="M3 52 L9 12 L15 34 L21 12 L27 52 L20 52 L15 26 L10 52 Z" fill="#111111"/>
+
+  <!-- blue oval, the mobile's base weight -->
+  <ellipse cx="10" cy="57" rx="7" ry="4" fill="#1A47B0"/>
+
+  <!-- L : heavy upright, red wedge as its foot -->
+  <rect x="31" y="10" width="7" height="42" fill="#111111"/>
+  <polygon points="31 40 31 52 46 52" fill="#E8371E"/>
+
+  <!-- A : solid wedge with a cut, yellow fin in the counter -->
+  <path d="M42 52 L52 14 L62 52 L54 52 L52 36 L50 52 Z" fill="#111111"/>
+  <polygon points="52 36 62 50 52 50" fill="#F5C400"/>
+
+  <!-- red disc -->
+  <circle cx="55" cy="8" r="6" fill="#E8371E"/>
+</svg>
